@@ -91,7 +91,7 @@ public class Czas24h
         set {
             if (value < 0 || value > 24)
                 throw new ArgumentException("error");
-            liczbaSekund = Sekunda + 60 * Minuta + 3600 * value;
+            liczbaSekund = Sekunda + 60 * Minuta + 36000 * value;
         }
     }
 
