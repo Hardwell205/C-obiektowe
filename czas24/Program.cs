@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 public class Program
 {
@@ -99,7 +99,7 @@ public class Czas24h
     {
         // uzupełnij kod zgłaszając wyjątek ArgumentException
         // w sytuacji niepoprawnych danych
-        s
+
         liczbaSekund = sekunda + 60 * minuta + 3600 * godzina;
         if (godzina < 0 || godzina > 24)
         {
@@ -117,4 +117,3 @@ public class Czas24h
 
     public override string ToString() => $"{Godzina}:{Minuta:D2}:{Sekunda:D2}";
 }
-XDDDDDDDDDDDD
