@@ -66,19 +66,20 @@ public class Czas24h
         // uzupełnij kod - zdefiniuj setters'a
         set
         {
-            if (value < 0 || value > 60)
+            if (value < 0 || value >= 60)
                 throw new ArgumentException("error");
             liczbaSekund = value + 60 * Minuta + 3600 * Godzina;
-        } 
-        
+        }
+
     }
 
     public int Minuta
     {
         get => (liczbaSekund / 60) % 60;
         // uzupełnij kod - zdefiniuj setters'a
-        set {
-            if (value < 0 || value > 60)
+        set
+        {
+            if (value < 0 || value >= 60)
                 throw new ArgumentException("error");
             liczbaSekund = Sekunda + 60 * value + 3600 * Godzina;
         }
@@ -88,8 +89,9 @@ public class Czas24h
     {
         get => liczbaSekund / 3600;
         // uzupełnij kod - zdefiniuj setters'a
-        set {
-            if (value < 0 || value > 24)
+        set
+        {
+            if (value < 0 || value >= 24)
                 throw new ArgumentException("error");
             liczbaSekund = Sekunda + 60 * Minuta + 3600 * value;
         }
@@ -97,22 +99,23 @@ public class Czas24h
 
     public Czas24h(int godzina, int minuta, int sekunda)
     {
+        if (godzina < 0 || godzina >= 24)
+        {
+            throw new ArgumentException("error");
+        }
+        if (sekunda < 0 || sekunda >= 60)
+        {
+            throw new ArgumentException("error");
+        }
+        if (minuta < 0 || minuta >= 60)
+        {
+            throw new ArgumentException("error");
+        }
         // uzupełnij kod zgłaszając wyjątek ArgumentException
         // w sytuacji niepoprawnych danych
 
         liczbaSekund = sekunda + 60 * minuta + 3600 * godzina;
-        if (godzina < 0 || godzina > 24)
-        {
-            throw new ArgumentException("error");
-        }
-        if (sekunda < 0 || sekunda > 60)
-        {
-            throw new ArgumentException("error");
-        }
-        if (minuta < 0 || minuta > 60)
-        {
-            throw new ArgumentException("error");
-        }
+        
     }
 
     public override string ToString() => $"{Godzina}:{Minuta:D2}:{Sekunda:D2}";
